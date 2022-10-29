@@ -70,7 +70,7 @@ html {
 }
 .info-block-item {
   display: flex;
-  font-size: $font-size;
+  //font-size: $font-size;
   margin: 0 0 1.3rem 0;
   &__column {
     width: 33%;
@@ -108,4 +108,12 @@ html {
       margin: 0;
     }
   }
+  &__column {
+    @media (max-width: 600px) {
+      width: 70%;
+    }
+  }
+}
+.portfolio-link {
+  text-decoration: underline;
 }

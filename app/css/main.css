@@ -194,7 +194,6 @@ h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 20px;
   margin: 0 0 1.3rem 0;
 }
 .info-block-item__column {
@@ -234,5 +233,14 @@ h6 {
 
 .education-info__item:nth-last-child(1) {
   margin: 0;
+}
+@media (max-width: 600px) {
+  .education-info__column {
+    width: 70%;
+  }
+}
+
+.portfolio-link {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=main.css.map */
