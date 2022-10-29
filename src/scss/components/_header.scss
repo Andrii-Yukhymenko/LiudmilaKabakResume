@@ -1,8 +1,13 @@
 .header {
+  position: relative;
   &__about {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
   }
   &__container {
     display: flex;
@@ -16,25 +21,42 @@
     width: 20%;
     max-height: 60%;
     object-fit: cover;
+    @media (max-width: 600px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
   &__name {
     text-align: center;
     font-size: 33px;
+    margin: 0 0 0.1em 0;
+    @media (max-width: 600px) {
+      font-size: 29px;
+    }
   }
   &__profession {
     text-align: center;
     font-size: 23px;
-    margin: 0 0 30px 0;
+    margin: 0 0 1.1em 0;
+    @media (max-width: 600px) {
+      font-size: 20px;
+    }
   }
 }
 .header-about-item {
   display: flex;
   align-items: center;
+  font-size: $font-size;
+  margin: 0 0 1.5em 0;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
   &__icon {
     margin-right: 10px;
     font-size: 17px;
   }
   &__text {
-    font-size: $font-size;
+    margin: 0;
   }
 }
