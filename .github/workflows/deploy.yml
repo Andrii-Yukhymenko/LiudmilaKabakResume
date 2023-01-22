@@ -1,0 +1,30 @@
+name: Build & Deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy app
+        uses: appleboy/ssh-action@v0.1.2
+        with:
+          host: ${{secrets.SSH_HOST}} # IP address of the server you wish to ssh into
+          key: ${{secrets.SSH_KEY}} # Private key of the server
+          username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
+
+          script: |
+            cd /
+            sudo rm -rf /var/www/LiudmilaKabakResume/
+            sudo rm -rf /home/cloned-LiudmilaKabakResume/
+            cd /var/www
+            sudo mkdir LiudmilaKabakResume
+            cd /home
+            sudo mkdir cloned-LiudmilaKabakResume
+            cd cloned-LiudmilaKabakResume
+            sudo git clone https://github.com/Andrii-Yukhymenko/LiudmilaKabakResume.git
+            cd LiudmilaKabakResume/
+            sudo npm install
+            sudo npm build
+            sudo cp -r app/* /var/www/LiudmilaKabakResume
